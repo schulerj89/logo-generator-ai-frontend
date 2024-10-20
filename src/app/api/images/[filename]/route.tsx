@@ -4,7 +4,7 @@ export async function GET(request: Request, { params }: { params: { filename: st
     const { filename } = params;
 
     try {
-        const response = await fetch(`http://localhost:5000/images/${filename}`);
+        const response = await fetch(`${process.env.BACKEND_URL}/images/${filename}`);
         
         if (!response.ok) {
           throw new Error(`Error fetching image: ${response.statusText}`);

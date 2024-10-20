@@ -3,7 +3,7 @@
 export async function POST(request: Request) {
     const { prompt } = await request.json();
 
-    const response = await fetch("http://localhost:5000/generate-image", {
+    const response = await fetch(`${process.env.BACKEND_URL}/generate-image`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

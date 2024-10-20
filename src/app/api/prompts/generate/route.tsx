@@ -3,7 +3,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(request: Request) {
     const url = new URL(request.url);
-    const response = await fetch("http://localhost:5000/generate-prompts", {
+    const response = await fetch(`${process.env.BACKEND_URL}/generate-prompts`, {
         method: "GET",
     });
 

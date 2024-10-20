@@ -20,7 +20,7 @@ export async function GET(request: NextApiRequest) {
 
 
     try {
-        const response = await fetch(`http://localhost:5000/images?page=${page}&limit=${limit}`);
+        const response = await fetch(`${process.env.BACKEND_URL}/images?page=${page}&limit=${limit}`);
         
         if (!response.ok) {
           throw new Error(`Error fetching images: ${response.statusText}`);
