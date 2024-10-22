@@ -19,7 +19,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setAPIError] = useState<string | null>(null);
   const [prompt, setPrompt] = useState(""); 
-  const [images, setImages] = useState<string[]>([]); 
+  const [images, setImages] = useState<{ filename: string; user_prompt: string }[]>([]); 
   const [page, setPage] = useState(1); 
   const [totalPages, setTotalPages] = useState(1); 
   const [promptSuggestions, setPromptSuggestions] = useState<string[]>([]);
