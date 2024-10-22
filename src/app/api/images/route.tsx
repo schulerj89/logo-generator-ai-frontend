@@ -1,8 +1,6 @@
 'use server'
 
-import { NextApiRequest } from "next";
-
-export async function GET(request: NextApiRequest) {
+export async function GET(request: Request) {
     const url = request.url;
     if (!url) {
         return new Response('Invalid request URL', {
