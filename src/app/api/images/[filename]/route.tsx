@@ -16,6 +16,7 @@ export async function GET(request: Request, { params }: { params: { filename: st
         return new Response(Buffer.from(imageBuffer), {
             headers: {
                 'Content-Type': 'image/png',
+                'Cache-Control': 'public, max-age=3600',
             },
         });
     } catch (error) {
