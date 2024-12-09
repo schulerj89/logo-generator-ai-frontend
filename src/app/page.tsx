@@ -16,6 +16,8 @@ import {
   Collapse,
   IconButton,
 } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Switch from "@mui/material/Switch";
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState("");
@@ -133,7 +135,7 @@ export default function Home() {
         Fantasy Football Logo Generator
       </Typography>
 
-      <Typography variant="body1" color="textSecondary" paragraph>
+      <Typography variant="body1" color="textPrimary" paragraph>
         Create your own fantasy football mascot logo in 256x256 pixels resolution.
         The generated logo will be less than 500KB in size, ensuring fast loading and
         optimal performance for use across various platforms.
