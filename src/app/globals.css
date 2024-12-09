@@ -45,8 +45,12 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
-  .MuiTypography-root {
-    color: var(--foreground);
+  .MuiTypography-body1 {
+    color: white !important;
+  }
+
+  .MuiTypography-body2 {
+    color: black !important;
   }
 }
 
