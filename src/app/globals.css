@@ -52,6 +52,10 @@ a {
   .MuiTypography-body2 {
     color: black !important;
   }
+
+  .css-tdnytb-MuiButtonBase-root-MuiPaginationItem-root {
+    color: white;
+  }
 }
 
 .MuiTextField-root {
