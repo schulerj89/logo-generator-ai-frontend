@@ -15,7 +15,7 @@
     --input-foreground: #ffffff;
     --button-background: #1976d2;
     --button-foreground: #ffffff;
-    --card-background: #333333; /* Changed to ensure visibility */
+    --card-background: #fff; /* Changed to ensure visibility */
   }
 }
 
@@ -53,10 +53,6 @@ a {
 .MuiTextField-root {
   background-color: var(--input-background);
   color: var(--input-foreground);
-}
-
-.MuiCard-root {
-  background-color: var(--card-background);
 }
 
 .MuiButton-containedPrimary {

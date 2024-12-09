@@ -16,8 +16,6 @@ import {
   Collapse,
   IconButton,
 } from "@mui/material";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Switch from "@mui/material/Switch";
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState("");
