@@ -53,11 +53,11 @@ a {
     color: black !important;
   }
 
-  .css-tdnytb-MuiButtonBase-root-MuiPaginationItem-root {
+  .MuiPaginationItem-root {
     color: white !important;
   }
 
-  .css-tdnytb-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  .MuiPaginationItem-root.Mui-selected {
     color: #1976d2 !important;
   }
 }
