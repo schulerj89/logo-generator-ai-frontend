@@ -133,7 +133,7 @@ export default function Home() {
         Fantasy Football Logo Generator
       </Typography>
 
-      <Typography variant="body1" color="textPrimary" paragraph>
+      <Typography variant="body1" color="textPrimary">
         Create your own fantasy football mascot logo in 256x256 pixels resolution.
         The generated logo will be less than 500KB in size, ensuring fast loading and
         optimal performance for use across various platforms.

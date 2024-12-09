@@ -15,7 +15,7 @@
     --input-foreground: #ffffff;
     --button-background: #1976d2;
     --button-foreground: #ffffff;
-    --card-background: #fff; /* Changed to ensure visibility */
+    --card-background: #ffffff; /* Changed to ensure visibility */
   }
 }
 
@@ -45,7 +45,7 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
-  .MuiTypography-paragraph {
+  .MuiTypography-root {
     color: var(--foreground);
   }
 }
