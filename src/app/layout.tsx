@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Script from "next/script"; // Import the Script component from Next.js
 import "./globals.css";
 import Menu from "../components/Menu"; // Import the Menu component
+import Footer from "../components/Footer"; // Import the Footer component
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Menu /> {/* Add the Menu component */}
         {children}
+        <Footer /> {/* Add the Footer component */}
       </body>
     </html>
   );
