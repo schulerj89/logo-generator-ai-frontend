@@ -16,7 +16,6 @@ import {
   Collapse,
   IconButton,
 } from "@mui/material";
-import Head from "next/head";
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState("");
@@ -88,6 +87,14 @@ export default function Home() {
     fetchImages(page);
   }, [page]);
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_CLIENT_ID}`;
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    document.head.appendChild(script);
+  }, []);
+
   const generateNewImage = async () => {
     setLoading(true);
     setAPIError(null);
@@ -130,13 +137,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_CLIENT_ID}`}
-          crossOrigin="anonymous"
-        ></script>
-      </Head>
       <Container maxWidth="lg" sx={{ paddingTop: "20px", minHeight: "700px", paddingBottom: "20px" }}>
         <Typography variant="h4" gutterBottom>
           Fantasy Football Logo Generator
