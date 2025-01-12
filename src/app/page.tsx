@@ -16,6 +16,7 @@ import {
   Collapse,
   IconButton,
 } from "@mui/material";
+import Head from "next/head";
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState("");
@@ -128,193 +129,202 @@ export default function Home() {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ paddingTop: "20px", minHeight: "700px", paddingBottom: "20px" }}>
-      <Typography variant="h4" gutterBottom>
-        Fantasy Football Logo Generator
-      </Typography>
+    <>
+      <Head>
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_CLIENT_ID}`}
+          crossOrigin="anonymous"
+        ></script>
+      </Head>
+      <Container maxWidth="lg" sx={{ paddingTop: "20px", minHeight: "700px", paddingBottom: "20px" }}>
+        <Typography variant="h4" gutterBottom>
+          Fantasy Football Logo Generator
+        </Typography>
 
-      <Typography variant="body1" color="textPrimary" sx={{ marginBottom: "20px" }}>
-        Create your own fantasy football mascot logo in 256x256 pixels resolution.
-        The generated logo will be less than 500KB in size, ensuring fast loading and
-        optimal performance for use across various platforms.
-      </Typography>
+        <Typography variant="body1" color="textPrimary" sx={{ marginBottom: "20px" }}>
+          Create your own fantasy football mascot logo in 256x256 pixels resolution.
+          The generated logo will be less than 500KB in size, ensuring fast loading and
+          optimal performance for use across various platforms.
+        </Typography>
 
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          generateNewImage();
-        }}
-        style={{ marginBottom: "20px" }}
-      >
-        <TextField
-          fullWidth
-          variant="outlined"
-          label="Enter a prompt for the mascot"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          sx={{ marginBottom: "10px" }}
-        />
-
-        {error && (
-          <Typography
-            variant="body2"
-            color="error"
-            sx={{ marginBottom: "10px" }}
-          >
-            {error}
-          </Typography>
-        )}
-
-        {/* Suggestion Cards with light gray background */}
-        <Box sx={{ display: "flex", gap: 2, marginBottom: "20px" }}>
-          {promptSuggestions.map((suggestion, index) => (
-            <Card
-              key={index}
-              sx={{ cursor: "pointer", flex: 1, backgroundColor: "#f5f5f5" }}  // Light gray background
-              onClick={() => handleSuggestionClick(suggestion)}
-            >
-              <CardContent>
-                <Typography variant="body2" align="center">
-                  {suggestion}
-                </Typography>
-              </CardContent>
-            </Card>
-          ))}
-        </Box>
-
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          fullWidth
-          disabled={loading}
-          sx={{ marginBottom: "20px" }}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            generateNewImage();
+          }}
+          style={{ marginBottom: "20px" }}
         >
-          Generate New Image
-        </Button>
-      </form>
-
-      {loading && <CircularProgress />}
-
-      {imageUrl && (
-        <Card sx={{ maxWidth: 256, margin: "20px auto" }}>
-          <CardMedia
-            component="img"
-            image={`api/images/${imageUrl}`}
-            alt="Generated Fantasy Football Mascot"
-            sx={{
-              height: 256,
-              width: 256,
-              objectFit: "contain",
-              margin: "auto",
-              padding: "10px",
-            }}
+          <TextField
+            fullWidth
+            variant="outlined"
+            label="Enter a prompt for the mascot"
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            sx={{ marginBottom: "10px" }}
           />
-          <CardContent>
-            <Button
-              variant="contained"  // Changed from "outlined" to "contained"
-              color="primary"
-              onClick={() => copyImageUrl(`api/images/${imageUrl}`)}
-              fullWidth
-              sx={{ color: "#fff" }}  // Set text color to white
+
+          {error && (
+            <Typography
+              variant="body2"
+              color="error"
+              sx={{ marginBottom: "10px" }}
             >
-              Copy Image URL
-            </Button>
-          </CardContent>
-        </Card>
-      )}
+              {error}
+            </Typography>
+          )}
 
-      <Typography variant="h5" gutterBottom>
-        User Generated Images
-      </Typography>
+          {/* Suggestion Cards with light gray background */}
+          <Box sx={{ display: "flex", gap: 2, marginBottom: "20px" }}>
+            {promptSuggestions.map((suggestion, index) => (
+              <Card
+                key={index}
+                sx={{ cursor: "pointer", flex: 1, backgroundColor: "#f5f5f5" }}  // Light gray background
+                onClick={() => handleSuggestionClick(suggestion)}
+              >
+                <CardContent>
+                  <Typography variant="body2" align="center">
+                    {suggestion}
+                  </Typography>
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
 
-      <Collapse in={alertOpen}>
-        <Alert
-          severity="success"
-          action={
-            <IconButton
-              aria-label="close"
-              color="inherit"
-              size="small"
-              onClick={() => {
-                setAlertOpen(false);
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            fullWidth
+            disabled={loading}
+            sx={{ marginBottom: "20px" }}
+          >
+            Generate New Image
+          </Button>
+        </form>
+
+        {loading && <CircularProgress />}
+
+        {imageUrl && (
+          <Card sx={{ maxWidth: 256, margin: "20px auto" }}>
+            <CardMedia
+              component="img"
+              image={`api/images/${imageUrl}`}
+              alt="Generated Fantasy Football Mascot"
+              sx={{
+                height: 256,
+                width: 256,
+                objectFit: "contain",
+                margin: "auto",
+                padding: "10px",
               }}
             />
-          }
-          sx={{ mb: 2 }}
-        >
-          {alertMessage}
-        </Alert>
-      </Collapse>
+            <CardContent>
+              <Button
+                variant="contained"  // Changed from "outlined" to "contained"
+                color="primary"
+                onClick={() => copyImageUrl(`api/images/${imageUrl}`)}
+                fullWidth
+                sx={{ color: "#fff" }}  // Set text color to white
+              >
+                Copy Image URL
+              </Button>
+            </CardContent>
+          </Card>
+        )}
 
-      <Box sx={{ maxHeight: "400px", overflowY: "auto", paddingBottom: "10px" }}>
-        <Grid
-          container
-          spacing={3}
-          justifyContent={images.length === 1 ? "center" : "flex-start"}
-        >
-          {images.length > 0 ? (
-            images.map((image, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    padding: 2,
-                    minHeight: 450,
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    image={`api/images/${image.filename}`}
-                    alt={`Generated image for ${image.user_prompt}`}
+        <Typography variant="h5" gutterBottom>
+          User Generated Images
+        </Typography>
+
+        <Collapse in={alertOpen}>
+          <Alert
+            severity="success"
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => {
+                  setAlertOpen(false);
+                }}
+              />
+            }
+            sx={{ mb: 2 }}
+          >
+            {alertMessage}
+          </Alert>
+        </Collapse>
+
+        <Box sx={{ maxHeight: "400px", overflowY: "auto", paddingBottom: "10px" }}>
+          <Grid
+            container
+            spacing={3}
+            justifyContent={images.length === 1 ? "center" : "flex-start"}
+          >
+            {images.length > 0 ? (
+              images.map((image, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <Card
                     sx={{
-                      height: 256,
-                      width: 256,
-                      objectFit: "contain",
-                      margin: "auto",
-                      padding: "10px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      padding: 2,
+                      minHeight: 450,
                     }}
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      align="center"
-                      sx={{ minHeight: 75 }}
-                    >
-                      {image.user_prompt}
-                    </Typography>
-                    <Button
-                      variant="contained"  // Changed from "outlined" to "contained"
-                      color="primary"
-                      onClick={() => copyImageUrl(`api/images/${image.filename}`)}
-                      fullWidth
-                      sx={{ color: "#fff" }}  // Set text color to white
-                    >
-                      Copy Image URL
-                    </Button>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))
-          ) : (
-            <Typography variant="body1">No images found</Typography>
-          )}
-        </Grid>
-      </Box>
+                  >
+                    <CardMedia
+                      component="img"
+                      image={`api/images/${image.filename}`}
+                      alt={`Generated image for ${image.user_prompt}`}
+                      sx={{
+                        height: 256,
+                        width: 256,
+                        objectFit: "contain",
+                        margin: "auto",
+                        padding: "10px",
+                      }}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        align="center"
+                        sx={{ minHeight: 75 }}
+                      >
+                        {image.user_prompt}
+                      </Typography>
+                      <Button
+                        variant="contained"  // Changed from "outlined" to "contained"
+                        color="primary"
+                        onClick={() => copyImageUrl(`api/images/${image.filename}`)}
+                        fullWidth
+                        sx={{ color: "#fff" }}  // Set text color to white
+                      >
+                        Copy Image URL
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))
+            ) : (
+              <Typography variant="body1">No images found</Typography>
+            )}
+          </Grid>
+        </Box>
 
-      <Grid container justifyContent="center" sx={{ marginTop: "20px" }}>
-        <Pagination
-          count={totalPages}
-          page={page}
-          onChange={(e, value) => setPage(value)}
-          color="primary"
-          variant="outlined"
-          shape="rounded"
-        />
-      </Grid>
-    </Container>
+        <Grid container justifyContent="center" sx={{ marginTop: "20px" }}>
+          <Pagination
+            count={totalPages}
+            page={page}
+            onChange={(e, value) => setPage(value)}
+            color="primary"
+            variant="outlined"
+            shape="rounded"
+          />
+        </Grid>
+      </Container>
+    </>
   );
 }
