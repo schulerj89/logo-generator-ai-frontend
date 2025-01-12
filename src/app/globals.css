@@ -17,10 +17,10 @@
     --button-foreground: #ffffff;
     --card-background: #ffffff; /* Changed to ensure visibility */
   }
+}
 
-  .overlay {
-    color: white !important; /* Ensure text is white in the overlay */
-  }
+.overlay {
+  color: white !important; /* Ensure text is white in the overlay */
 }
 
 html,
