@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script"; // Import the Script component from Next.js
 import "./globals.css";
+import Menu from "../components/Menu"; // Import the Menu component
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,8 +17,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Fantasy Football Logo Generator",
-  description: "Generate a fantasy football logo for your team!",
+  title: "Fantasy Sports Logos",
+  description: "Generate a fantasy sports logo for your team!",
 };
 
 export default function RootLayout({
@@ -49,6 +50,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Menu /> {/* Add the Menu component */}
         {children}
       </body>
     </html>

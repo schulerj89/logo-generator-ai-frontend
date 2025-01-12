@@ -131,11 +131,11 @@ export default function Home() {
     <>
       <Container maxWidth="lg" sx={{ paddingTop: "20px", minHeight: "700px", paddingBottom: "20px" }}>
         <Typography variant="h4" gutterBottom>
-          Fantasy Football Logo Generator
+          Fantasy Sports Logo Generator
         </Typography>
 
         <Typography variant="body1" color="textPrimary" sx={{ marginBottom: "20px" }}>
-          Create your own fantasy football mascot logo in 256x256 pixels resolution.
+          Create your own fantasy sports mascot logo in 256x256 pixels resolution.
           The generated logo will be less than 500KB in size, ensuring fast loading and
           optimal performance for use across various platforms.
         </Typography>
