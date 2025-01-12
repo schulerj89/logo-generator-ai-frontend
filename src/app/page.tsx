@@ -15,7 +15,10 @@ import {
   Alert,
   Collapse,
   IconButton,
+  Tooltip,
+  IconButton as MuiIconButton,
 } from "@mui/material";
+import { FileCopy as FileCopyIcon } from "@mui/icons-material";
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState("");
@@ -26,7 +29,7 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [promptSuggestions, setPromptSuggestions] = useState<string[]>([]);
-  const limit = 9;
+  const limit = 16;
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
 
@@ -127,6 +130,41 @@ export default function Home() {
     showAlert('Image URL copied to clipboard!');
   };
 
+  const imageContainerStyle = {
+    position: "relative",
+    width: "200px", // Updated width
+    height: "200px", // Updated height
+  };
+
+  const imageStyle = {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+  };
+
+  const overlayStyle = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    color: "white",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    opacity: 0,
+    transition: "opacity 0.3s",
+    flexDirection: "column",
+  };
+
+  const imageContainerHoverStyle = {
+    ...imageContainerStyle,
+    "&:hover .overlay": {
+      opacity: 1,
+    },
+  };
+
   return (
     <>
       <Container maxWidth="lg" sx={{ paddingTop: "20px", minHeight: "700px", paddingBottom: "20px" }}>
@@ -198,31 +236,26 @@ export default function Home() {
         {loading && <CircularProgress />}
 
         {imageUrl && (
-          <Card sx={{ maxWidth: 256, margin: "20px auto" }}>
-            <CardMedia
-              component="img"
-              image={`api/images/${imageUrl}`}
+          <Box sx={imageContainerHoverStyle}>
+            <img
+              src={`api/images/${imageUrl}`}
               alt="Generated Fantasy Football Mascot"
-              sx={{
-                height: 256,
-                width: 256,
-                objectFit: "contain",
-                margin: "auto",
-                padding: "10px",
-              }}
+              style={imageStyle as React.CSSProperties}
             />
-            <CardContent>
-              <Button
-                variant="contained"  // Changed from "outlined" to "contained"
-                color="primary"
-                onClick={() => copyImageUrl(`api/images/${imageUrl}`)}
-                fullWidth
-                sx={{ color: "#fff" }}  // Set text color to white
-              >
-                Copy Image URL
-              </Button>
-            </CardContent>
-          </Card>
+            <Box className="overlay" sx={overlayStyle}>
+              <Typography variant="body2" align="center" sx={{ marginBottom: "10px" }}>
+                {prompt}
+              </Typography>
+              <Tooltip title="Copy Image URL">
+                <MuiIconButton
+                  color="inherit"
+                  onClick={() => copyImageUrl(`api/images/${imageUrl}`)}
+                >
+                  <FileCopyIcon />
+                </MuiIconButton>
+              </Tooltip>
+            </Box>
+          </Box>
         )}
 
         <Typography variant="h5" gutterBottom>
@@ -248,56 +281,35 @@ export default function Home() {
           </Alert>
         </Collapse>
 
-        <Box sx={{ maxHeight: "400px", overflowY: "auto", paddingBottom: "10px" }}>
+        <Box sx={{ overflowY: "auto", paddingBottom: "10px" }}>
           <Grid
             container
-            spacing={3}
+            spacing={1} // Reduced spacing
             justifyContent={images.length === 1 ? "center" : "flex-start"}
           >
             {images.length > 0 ? (
               images.map((image, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
-                  <Card
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      padding: 2,
-                      minHeight: 450,
-                    }}
-                  >
-                    <CardMedia
-                      component="img"
-                      image={`api/images/${image.filename}`}
+                <Grid item xs={6} sm={4} md={3} key={index}> {/* Adjusted grid item size */}
+                  <Box sx={imageContainerHoverStyle}>
+                    <img
+                      src={`api/images/${image.filename}`}
                       alt={`Generated image for ${image.user_prompt}`}
-                      sx={{
-                        height: 256,
-                        width: 256,
-                        objectFit: "contain",
-                        margin: "auto",
-                        padding: "10px",
-                      }}
+                      style={imageStyle as React.CSSProperties}
                     />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        align="center"
-                        sx={{ minHeight: 75 }}
-                      >
+                    <Box className="overlay" sx={overlayStyle}>
+                      <Typography variant="body2" align="center" sx={{ marginBottom: "10px" }}>
                         {image.user_prompt}
                       </Typography>
-                      <Button
-                        variant="contained"  // Changed from "outlined" to "contained"
-                        color="primary"
-                        onClick={() => copyImageUrl(`api/images/${image.filename}`)}
-                        fullWidth
-                        sx={{ color: "#fff" }}  // Set text color to white
-                      >
-                        Copy Image URL
-                      </Button>
-                    </CardContent>
-                  </Card>
+                      <Tooltip title="Copy Image URL">
+                        <MuiIconButton
+                          color="inherit"
+                          onClick={() => copyImageUrl(`api/images/${image.filename}`)}
+                        >
+                          <FileCopyIcon />
+                        </MuiIconButton>
+                      </Tooltip>
+                    </Box>
+                  </Box>
                 </Grid>
               ))
             ) : (
