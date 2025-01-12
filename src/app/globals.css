@@ -60,10 +60,10 @@ a {
   .MuiPaginationItem-root.Mui-selected {
     color: #1976d2 !important;
   }
-}
 
-.overlay {
-  color: white !important; /* Ensure text is white in the overlay */
+  .overlay p {
+    color: white !important; /* Ensure text is white in the overlay */
+  }
 }
 
 .MuiTextField-root {
