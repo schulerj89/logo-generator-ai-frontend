@@ -89,7 +89,7 @@ export default function Home() {
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_CLIENT_ID}`;
+    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`;
     script.async = true;
     script.crossOrigin = "anonymous";
     document.head.appendChild(script);
