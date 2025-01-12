@@ -9,7 +9,6 @@ import {
   Typography,
   Card,
   CardContent,
-  CardMedia,
   Pagination,
   Box,
   Alert,
