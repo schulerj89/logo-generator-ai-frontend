@@ -4,6 +4,9 @@ git pull
 echo "Stopping the current pm2 process..."
 pm2 stop nextjs-app
 
+echo "Installing the dependencies..."
+npm install
+
 echo "Building the application..."
 npm run build
 
