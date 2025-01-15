@@ -347,10 +347,10 @@ export default function Home() {
             Use descriptive terms: Include specific details about your team, such as the sport, team name, and mascot personality.
           </Typography>
           <Typography variant="body1" paragraph>
-            Experiment with styles: Try bold, dynamic designs, or add quirky attributes like "wearing a crown" or "holding a trophy."
+            Experiment with styles: Try bold, dynamic designs, or add quirky attributes like &quot;wearing a crown&quot; or &quot;holding a trophy.&quot;
           </Typography>
           <Typography variant="body1" paragraph>
-            Be creative: Combine ideas, e.g., "a tiger mascot with fiery red fur and sunglasses."
+            Be creative: Combine ideas, e.g., &quot;a tiger mascot with fiery red fur and sunglasses.&quot;
           </Typography>
         </Box>
 
