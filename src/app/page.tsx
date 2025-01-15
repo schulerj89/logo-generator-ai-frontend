@@ -232,22 +232,6 @@ export default function Home() {
           </Button>
         </form>
 
-        {/* New section "Why Choose Us?" */}
-        <Box sx={{ marginTop: "40px" }}>
-          <Typography variant="h5" gutterBottom>
-            Why Choose Us?
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Unique AI-generated designs optimized for web and print.
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Logos under 500KB for fast loading.
-          </Typography>
-          <Typography variant="body1" paragraph>
-            Perfect for fantasy sports leagues, merchandise, and more.
-          </Typography>
-        </Box>
-
         {loading && <CircularProgress />}
 
         {imageUrl && (
@@ -367,6 +351,22 @@ export default function Home() {
           </Typography>
           <Typography variant="body1" paragraph>
             Step 3: View your unique mascot, and copy the image URL to share or download it for your team!
+          </Typography>
+        </Box>
+
+        {/* New section "Why Choose Us?" */}
+        <Box sx={{ marginTop: "40px" }}>
+          <Typography variant="h5" gutterBottom>
+            Why Choose Us?
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Unique AI-generated designs optimized for web and print.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Logos under 500KB for fast loading.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Perfect for fantasy sports leagues, merchandise, and more.
           </Typography>
         </Box>
 
