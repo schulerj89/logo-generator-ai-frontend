@@ -341,16 +341,32 @@ export default function Home() {
         {/* FAQs Section */}
         <Box sx={{ marginTop: "40px" }}>
           <Typography variant="h5" gutterBottom>
-            How to Create the Perfect Mascot Logo for Your Fantasy Sports Team
+            How Does the Fantasy Sports Logo Generator Work?
           </Typography>
           <Typography variant="body1" paragraph>
-            Use descriptive terms: Include specific details about your team, such as the sport, team name, and mascot personality.
+            Step 1: Enter a short description of your mascot (e.g., &quot;A fierce dragon with blue scales and a football helmet&quot;).
           </Typography>
           <Typography variant="body1" paragraph>
-            Experiment with styles: Try bold, dynamic designs, or add quirky attributes like &quot;wearing a crown&quot; or &quot;holding a trophy.&quot;
+            Step 2: Click &quot;Generate New Image.&quot;
           </Typography>
           <Typography variant="body1" paragraph>
-            Be creative: Combine ideas, e.g., &quot;a tiger mascot with fiery red fur and sunglasses.&quot;
+            Step 3: View your unique mascot, and copy the image URL to share or download it for your team!
+          </Typography>
+        </Box>
+
+        {/* New section "Why Choose Us?" */}
+        <Box sx={{ marginTop: "40px" }}>
+          <Typography variant="h5" gutterBottom>
+            Why Choose Us?
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Unique AI-generated designs optimized for web and print.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Logos under 500KB for fast loading.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Perfect for fantasy sports leagues, merchandise, and more.
           </Typography>
         </Box>
 
