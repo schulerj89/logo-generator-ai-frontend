@@ -327,6 +327,42 @@ export default function Home() {
             shape="rounded"
           />
         </Grid>
+
+        {/* Section explaining why the custom logo was created */}
+        <Box sx={{ marginTop: "40px" }}>
+          <Typography variant="h5" gutterBottom>
+            Why We Created This Logo Generator
+          </Typography>
+          <Typography variant="body1" paragraph>
+            We needed a custom logo for our fantasy sports websites that allows for a URL and needs to be 256x256 pixels in size. This ensures that the logo is optimized for fast loading and performance across various platforms.
+          </Typography>
+        </Box>
+
+        {/* FAQs Section */}
+        <Box sx={{ marginTop: "40px" }}>
+          <Typography variant="h5" gutterBottom>
+            How to Create the Perfect Mascot Logo for Your Fantasy Sports Team
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Use descriptive terms: Include specific details about your team, such as the sport, team name, and mascot personality.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Experiment with styles: Try bold, dynamic designs, or add quirky attributes like "wearing a crown" or "holding a trophy."
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Be creative: Combine ideas, e.g., "a tiger mascot with fiery red fur and sunglasses."
+          </Typography>
+        </Box>
+
+        {/* Answer to "Will this website always be free?" */}
+        <Box sx={{ marginTop: "40px" }}>
+          <Typography variant="h5" gutterBottom>
+            Will this website always be free?
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Yes, hopefully! We plan to keep this website free by supporting it with ads.
+          </Typography>
+        </Box>
       </Container>
     </>
   );

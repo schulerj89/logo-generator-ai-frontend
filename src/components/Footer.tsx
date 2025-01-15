@@ -9,6 +9,9 @@ export default function Footer() {
       <Link href="/privacy-policy" color="inherit" sx={{ display: "block", marginTop: "10px" }}>
         Privacy Policy
       </Link>
+      <Link href="/terms" color="inherit" sx={{ marginTop: "10px", display: "block" }}>
+        Terms of Use
+      </Link>
     </Box>
   );
 }
